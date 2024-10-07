@@ -81,13 +81,16 @@ function AITalk() {
   // Function to send the user input to the backend AI
   const sendToBackend = async (userMessage) => {
     try {
-      const response = await fetch("http://localhost:3000/getResponse", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userMessage }), // Send the user's spoken message
-      });
+      const response = await fetch(
+        "https://hygeiaserver.onrender.com/getResponse",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userMessage }), // Send the user's spoken message
+        }
+      );
 
       const data = await response.json();
 
